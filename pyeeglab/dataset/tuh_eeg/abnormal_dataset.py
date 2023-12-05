@@ -17,8 +17,8 @@ class TUHEEGAbnormalDataset(Dataset):
 
     def __init__(
             self,
-            path: str = "./data/tuh_eeg_abnormal/",
-            version: str = "2.0.0",
+            path: str = ".", # /data/eeg/tuh_eeg_abnormal/
+            version: str = "3.0.0",
             exclude_channels_set: List[str] = [
                 "BURSTS",
                 "ECG EKG-REF",

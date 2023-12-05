@@ -13,7 +13,7 @@ from ..annotation import Annotation
 def rsync(path: str, user: str, password: str, slug: str, version: str) -> None:
     if user is not None and password is not None:
         logging.info("Download started, it will take some time")
-        url = user + "@" + "www.isip.piconepress.com:~/data/"
+        url = user + "@" + "www.isip.piconepress.com:~/data/eeg/"
         url = url + slug + "/v" + version + "/"
         process = subprocess.Popen(
             [
@@ -22,6 +22,8 @@ def rsync(path: str, user: str, password: str, slug: str, version: str) -> None:
                 password,
                 "rsync",
                 "-auxvL",
+                "--delete",
+                "--ignore-existing",
                 url,
                 path
             ],
